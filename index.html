@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html>
+
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>MDSC</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./assets/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/codemirror.min.css">
+    <link rel="stylesheet" href="./assets/app.css">
+
+
+
+
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-20 text-center">
+                <br></br>
+                <b>MDSC</b>: Towards Evaluating the Style Consistency Between Music and Dance<br>
+<!--                 <small>
+                    CVPR 2022 (Oral Presentation)
+                </small> -->
+            </h1>
+            <hr style="margin-top:0px">
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://zixiangzhou916.github.io/" style="font-size: 16px;">
+                            Zixiang Zhou
+                        </a>
+                        <!-- <sup>1</sup> -->
+                    </li>
+                    <li>
+                        <a href="https://scholar.google.com/citations?user=w1GfIzIAAAAJ&hl=zh-CN" style="font-size: 16px;">
+                            Weiyuan Li
+                        </a>
+                        <!-- <sup>1</sup> -->
+                    </li>
+
+                    <li>
+                        <a href="https://sites.google.com/site/zjuwby/?pli=1" style="font-size: 16px;">
+                            Baoyuan Wang
+                        </a>
+                        <!-- <sup>1</sup> -->
+                    </li><br>
+                    <a></a><br>
+                    <li>
+                        <!-- <sup>1</sup> -->
+                        <a href="https://www.xiaoice.com/" style="font-size: 16px;">
+                            <img src="./assets/xiaobing.png" height="20px">
+                            Xiaobing.ai
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                        <!-- <a href="http://arxiv.org/abs/2211.16016"> -->
+                        <a href="https://arxiv.org/abs/2309.01340v3">
+                            <img src="./assets/arxiv.png" height="60px">
+                            <h4><strong>Preprint</strong></h4>
+                        </a>
+                    </li>
+
+                    <li>
+<!--                         <a onClick="alert('Code coming soon!\nContact dengyu2008@hotmail.com for more details.')"> -->
+                        <!-- <a href="https://github.com/dorniwang/PD-FGC"> -->
+                        <a href="https://github.com/rxlqn/mdsc">
+                            <img src="./assets/github.png" height="60px">
+                            <h4><strong>Code (coming soon)</strong></h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <a>
+                    <!-- <video style="width:100%;height:100%;" playsinline autoplay loop preload muted>
+                        <source src="./files/cover.mp4" type="video/mp4">
+                    </video> -->
+                    <img src="./assets/teaser.png" class="img-responsive" alt="teaser"><br>
+                    
+                </a>
+                <p class="text-justify" style="font-size: 16px;">
+                    Given a music stream and five dance motion sequences, our model is able to measure style consistency between dance motion and music.
+                </p>
+                <br></br>
+                <h2>
+                    Abstract
+                </h2>
+                <hr style="margin-top:0px">
+                <p class="text-justify" style="font-size: 16px;">
+                    We propose MDSC(Music-Dance-Style Consistency), the first evaluation metric that assesses to what degree the dance moves and music match. Existing metrics can only evaluate the motion fidelity and diversity and the degree of rhythmic matching between music and dance. MDSC measures how stylistically correlated the generated dance motion sequences and the conditioning music sequences are. We found that directly measuring the embedding distance between motion and music is not an optimal solution. We instead tackle this through modeling it as a clustering problem. Specifically, 1) we pre-train a music encoder and a motion encoder, then 2) we learn to map and align the motion and music embedding in joint space by jointly minimizing the intra-cluster distance and maximizing the inter-cluster distance, and 3) for evaluation purposes, we encode the dance moves into embedding and measure the intra-cluster and inter-cluster distances, as well as the ratio between them. We evaluate our metric on the results of several music-conditioned motion generation methods, combined with user study, we found that our proposed metric is a robust evaluation metric in measuring the music-dance style correlation. 
+                </p>
+            </div>
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Video
+                </h2>
+                <hr style="margin-top:0px">
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/JYoUmuypM4I?si=5M8q2RFuFR9vKT1R" allowfullscreen=""
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Overview
+                </h2>
+                <hr style="margin-top:0px">
+                <img src="./assets/pipeline.png" class="img-responsive" alt="overview"><br>
+                <p class="text-justify" style="font-size: 20px;">
+                    The overview of our method. 
+                </p>
+                <p class="text-justify" style="font-size: 16px;">
+                    (a) We train a motion auto-encoder supervised by reconstruction loss, and use the encoder as E_M. (b) We use the pretrained music encoder E_A. (c) Given batch of motion sequence and music streams as input, our method uses pretrained motion encoder E_M and music encoder E_A to obtain their embedding. Instead of pulling paired motion embedding and audio embedding closer and push unpaired apart, we attempt to cluster style-consistent motion embedding and music embedding into same cluster, while inconsistent embedding are clustered into different clusters. At this stage, only the light-weight MLPs are trainable. The dotted arrow means no back-propagation is applied, while solid arrow means back-propagation is applied.
+                </p>
+                <!-- <p class="text-justify" style="font-size: 16px;">
+                    We also propose a novel dataset pipeline. Given a video, we first crop it to multiple short segments. We use a visual large language model to describe the content of each video segments. Then we use ChatGPT to produce textual annotations at various levels of detail from the content description. Our final annotation consists of three levels. The coarse-grained level describes the scene of the entire video, the medium-grained level describes the activity presented in each video segment, and the fine-grained level describes the specific actions in order to execute the activity.
+                </p> -->
+            </div>
+        </div>
+
+
+
+        <!-- <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    More Results
+                </h2>
+                <hr style="margin-top:0px">
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/GPSmv1lJpQQ?si=coppeFPsV9a_e1_3" allowfullscreen=""
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/jgKlSJetnoQ?si=TmEjy5w0s7Fnsw1a" allowfullscreen=""
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/NJdegzG6KQw?si=n0YkhsIAads9SlLz" allowfullscreen=""
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+        <!-- <div class="row">
+            <div class="col-md-12 col-md-offset-0">
+                <div class="text-center">
+                    <h2>
+                        Citation
+                    </h2>
+                </div>
+                <hr style="margin-top:0px">
+                <div class="form-group col-md-12 col-md-offset-0">
+                    <div class="CodeMirror cm-s-default CodeMirror-wrap" style="font-size: 16px;">
+                        <div
+                            style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 4px; ">
+                            <textarea autocorrect="off" autocapitalize="off" spellcheck="false"
+                                style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"
+                                tabindex="0"></textarea></div>
+                        <div class="CodeMirror-vscrollbar" cm-not-content="true">
+                            <div style="min-width: 1px; height: 0px;"></div>
+                        </div>
+                        <div class="CodeMirror-hscrollbar" cm-not-content="true">
+                            <div style="height: 100%; min-height: 1px; width: 0px;"></div>
+                        </div>
+                        <div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div>
+                        <div class="CodeMirror-gutter-filler" cm-not-content="true"></div>
+                        <div class="CodeMirror-scroll" tabindex="-1">
+                            <div class="CodeMirror-sizer"
+                                style="margin-left: 0px; margin-bottom: -17px; border-right-width: 13px; min-height: 162px; padding-right: 0px; padding-bottom: 0px;">
+                                <div style="position: relative; top: 0px;">
+                                    <div class="CodeMirror-lines">
+                                        <div style="position: relative; outline: none;">
+                                            <div class="CodeMirror-measure">AخA</div>
+                                            <div class="CodeMirror-measure"></div>
+                                            <div style="position: relative; z-index: 1;"></div>
+                                            <div class="CodeMirror-cursors">
+                                                <div class="CodeMirror-cursor"
+                                                    style="left: 4px; top: 0px; height: 17.1406px;">&nbsp;</div>
+                                            </div>
+                                            <div class="CodeMirror-code" style="">
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;">@article{wang2022pdfgc,</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  title={UDE: A Unified Driving Engine for Human Motion Generation },</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  author={Wang, Duomin and Deng, Yu and Yin, Zixin and Shum, Heung-Yeung and Wang, Baoyuan},</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  journal={arXiv:2211.14506},</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  year={2022}</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;">}</span></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="position: absolute; height: 13px; width: 1px; top: 280px;"></div>
+                            <div class="CodeMirror-gutters" style="display: none; height: 300px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Acknowledgements
+                </h2>
+                <hr style="margin-top:0px">
+                <p class="text-justify" style="font-size: 16px;">
+                    <!-- We thank Harry Shum for the fruitful advice and discussion to improve the paper. <br> -->
+                    The website template was adapted from <a href="https://yudeng.github.io/GRAM/">GRAM</a>.
+                </p>
+            </div>
+        </div>
+
+
+</body>
+
+</html>
